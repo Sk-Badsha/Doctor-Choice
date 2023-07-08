@@ -19,7 +19,7 @@ const bcrypt = require("bcrypt");
 
 const jwt = require("jsonwebtoken");
 const secretKey = "Badsha";
-//IMPORT EMPLOYEE MODEL AND BIND IT
+//IMPORT Patient MODEL AND BIND IT
 const PatientModel = require("../models/patient_schema");
 
 // post is used to INSERT DOCUMENT/RECORD
@@ -34,7 +34,7 @@ router.post(
         return res.send([]);
       } else {
         bcrypt.hash(req.body.password, 10).then((encpass) => {
-          //Create Object of Employee Model Class
+          //Create Object of Patient Model Class
           // And Receive value from request body and Store value within the Object
 
           const patientobj = new PatientModel({
@@ -50,7 +50,7 @@ router.post(
             zip: req.body.zip,
             termsConditionsStatus: req.body.termsConditionsStatus,
             password: encpass,
-          }); //CLOSE EmpModel
+          }); //CLOSE PatientModel
           //INSERT/SAVE THE RECORD/DOCUMENT
           patientobj
             .save()
@@ -60,7 +60,7 @@ router.post(
             .catch((err) => {
               res
                 .status(500)
-                .send({ message: err.message || "Error in Employee Save " });
+                .send({ message: err.message || "Error in Patientloyee Save " });
             });
         }); //CLOSE CATCH
       }
@@ -69,7 +69,7 @@ router.post(
 ); //CLOSE POST METHOD Line 26
 
 router.post("/login", (req, res) => {
-  //Create Object of Employee Model Class
+  //Create Object of Patient Model Class
   // And Receive value from request body and Store value within the Object
   PatientModel.find({ email: req.body.email })
     .then((getsearchdocument) => {
@@ -131,7 +131,7 @@ router.post("/reset-password/:id/:token", (req, res, next) => {
   const { password, password2 } = req.body;
 
   console.log(req.body.password);
-  //check if id is presend or not
+  //check if id is present or not
   PatientModel.find({ id: req.params.id }).then((user) => {
     if (user.length > 0) {
       // we have a valid id & a valid user exist with this id
