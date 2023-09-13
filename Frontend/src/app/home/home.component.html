@@ -1,0 +1,108 @@
+<div *ngIf="!userExist">
+    <app-navbar></app-navbar>
+</div>
+<div *ngIf="userExist">
+    <app-side-nav></app-side-nav>
+</div>
+<div class="flex-container">
+    <div class="item-left" id="item-1">
+        <img src="../../assets/images/home-img.svg" alt="">
+    </div>
+    
+    <div class="item-center" id="item-2">
+        <div class="hello">
+            <h1>In-Depth Scrutiny of Reservation Metrics</h1>
+        </div>
+        <div class="container-item" id="container-item-1">
+            <p> Total Consultation Hours</p>
+            <span class="container-item-numbersize">407640 hrs 45 mins</span>
+        </div>
+        <div class="container-item" id="container-item-2">
+            <p> Total Doctor attended</p>
+            <span class="container-item-numbersize">153</span>
+        </div>
+        <div class="container-item" id="container-item-3">
+            <p>Average <br> Consultation Duration</p>
+            <span class="container-item-numbersize p-32">11 mins 00 sec</span>
+        </div>
+        <div class="container-item" id="container-item-4">
+            <p> Emergency Service</p>
+            <h2> 011-23978046 OR 1075</h2>
+            <span class="container-item-numbersize ">For Emergency Contact
+            </span>
+        </div>
+    </div>
+    <div class="item-right" id="item-3">
+        <h2>Follow this steps to consult doctor</h2>
+
+        <div class="container">
+            <div class="column column-1 first-column">
+                <div class="image-container">
+                    <img src="../../assets/images/Steps-removebg-preview.png" alt="Your Image">
+                </div>
+            </div>
+            <div class="column second-column steps">
+
+                <p class="row custom-font step">1. Create an Account Register</p>
+                <p class="row step">2. Login and Search for Doctors</p>
+                <p class="row step">3. Select a Suitable Appointment Slot</p>
+                <p class="row step">4. Book the Appointment</p>
+                <p class="row step">5. Confirm and Receive Confirmation</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<!-- try & delete -->
+<hr>
+<div class="grid-container">
+    <h1 class="heading"> Why choose <span>Doctor Choice?</span></h1>
+
+
+    <div class="grid-box-container">
+        <div class="grid-box">
+            <img src="../../assets/images/img_telemed_bigger@3x.png" alt="">
+            <h3>instant teleconsultation</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="grid-box">
+            <img src="../../assets/images/service_24_7-removebg-preview.png" alt="">
+            <h3>24/7 Service</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="grid-box">
+            <img src="../../assets/images/affordable-removebg-preview.png" alt="">
+            <h3>Safe & Affordable</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="grid-box">
+            <img src="../../assets/images/privacy_background_removed.png" alt="">
+            <h3>Privacy Guaranteed Conversation</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="grid-box">
+            <img src="../../assets/images/experienced_doctors-removebg-preview.png" alt="">
+            <h3>Expert & Experienced In Industry</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+
+        <div class="grid-box">
+            <img src="../../assets/images/e_prescription-removebg-preview.png" alt="">
+            <h3>Instant Downloaded E-prescription</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, commodi?</p>
+            <a href="#" class="btn">read more</a>
+        </div>
+    </div>
+</div>
+<hr>
+<app-footer></app-footer>

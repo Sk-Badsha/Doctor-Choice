@@ -1,0 +1,72 @@
+<div class="sidebar open">
+  <div class="logo-details">
+      <div class="logo_name">Doctor Choice</div>
+  </div>
+  <ul class="nav-list">
+    <li>
+        <i class='bx bx-search' ></i>
+       <input type="text" placeholder="Search...">
+       <span class="tooltip">Search</span>
+    </li>
+    <li>
+      <a [routerLink]="'/afteruserlogin'">
+        <i class='bx bx-grid-alt'></i>
+        <span class="links_name">Dashboard</span>
+      </a>
+       <span class="tooltip">Dashboard</span>
+    </li>
+    <li>
+       <a [routerLink]="'/afteruserlogin'">
+        <i class='bx bx-home' ></i>
+        <span class="links_name">Home</span>
+      </a>
+    </li>
+    <li *ngIf="isUserlogedin()">
+      <a [routerLink]="'/afteruserlogin'">
+       <i class='bx bx-calendar'></i>
+        <span class="links_name">Book-Appointment</span>
+      </a>
+    </li>
+    <li *ngIf="isDoctorlogin() || isAdminlogin()">
+      <a [routerLink]="'/afteruserlogin'">
+        <i class='bx bx-list-ul'></i>
+        <span class="links_name">Appointment-List</span>
+      </a>
+    </li>
+    <li class="fa fa-sign-in" *ngIf="isAdminlogin()"><a [routerLink]="''">
+      <i class='bx bx-folder-plus bx-burst bx-rotate-90' ></i>
+      <span class="links_name">Add-Doctor</span></a></li>
+    <li *ngIf="isUserlogedin() || isAdminlogin()">
+      <a [routerLink]="'/our_doctors'">
+        <i class="bx bx-doctor"> 
+          <img  style="height: 20px;
+        width: 20px; margin-bottom: 7px; margin-left: 10px; filter: invert(1);" src="../../assets/images/doctor icon.png" alt="">
+      </i>
+      <span class="links_name">Doctor</span>
+    </a>
+  </li>
+  <li *ngIf="isUserlogedin()">
+   <a [routerLink]="''">
+     <i class='bx bx-user' ></i>
+     <span class="links_name">Update-Profile</span>
+   </a>
+ </li>
+  <li>
+    <a [routerLink]="'/afteruserlogin'">
+      <i class='bx bxs-contact' ></i>
+      <span class="links_name">Contact-Us</span>
+    </a>
+   </li>
+   
+   <li class="profile">
+       <div class="profile-details">
+         <!--<img src="profile.jpg" alt="profileImg">-->
+         <div class="name_job">
+           <div class="name">{{user}}</div>
+           <div class="job">{{email}}</div>
+         </div>
+       </div>
+       <i class='bx bx-log-out' id="log_out" (click)="logout()" ></i>
+   </li>
+  </ul>
+</div>

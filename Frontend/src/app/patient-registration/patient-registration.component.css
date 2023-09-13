@@ -1,0 +1,127 @@
+* {
+  text-transform: none;
+}
+
+.btn-set {
+  margin-bottom: 1em;
+  background-color: #e7c50e;
+  font-size: 10px;
+
+}
+
+.btn-set:hover {
+  background-color: #008CBA;
+  color: white;
+  box-shadow: none;
+}
+
+label {
+  float: left;
+  font-weight: 600;
+  font-size: small;
+
+}
+
+hr {
+  border: 1px dotted black;
+}
+
+input,
+select {
+  margin: 5px 0 22px 0;
+  line-height: 2em;
+  font-size: larger;
+  font-weight: 500;
+  border-radius: 15px;
+  text-transform: none;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+form .new-form input {
+
+  border: 1px solid lightgrey;
+  border-bottom-width: 2px;
+}
+
+form .new-form input:focus {
+  border-color: rgba(20, 164, 77, 1);
+  border-color: #fc83bb;
+}
+
+
+.row {
+  width: 50%;
+}
+
+.form-check {
+  position: relative;
+  right: 10em;
+  margin-bottom: 3em;
+
+}
+
+.form-check-input,
+.form-check-label {
+  position: absolute;
+
+
+}
+
+.button-1 {
+  padding: 8px 36px;
+  text-align: center;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+ 
+}
+
+.button-1:hover {
+  background-color: #14a44d;
+  color: white;
+}
+button .button-1:disabled{
+  cursor: not-allowed;
+}
+
+.container {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5em;
+}
+
+.signin a {
+  color: #14a44d;
+  cursor: pointer;
+}
+.signin a:hover{
+  text-decoration: underline;
+}
+
+.alert-danger {
+  border-radius: 1.5em;
+  font-size: 1.07em;
+}
+
+.show{
+  width: 50%;
+  font-size: 1.2em;
+  
+}
+.pd-alert{
+  padding-right: .7em; 
+}
+.close{
+  background: none;
+  margin-left: 2em;
+}
+

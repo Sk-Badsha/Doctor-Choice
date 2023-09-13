@@ -1,0 +1,23 @@
+
+.demo {
+    position: relative;
+}
+
+#main {
+    margin-left: 250px;
+    transition: margin-left .5s;
+    /* padding: 16px; */
+}
+
+.container-user {
+    background: linear-gradient(to left, #135058, #1cba95);
+  
+    margin: 0 auto;
+    padding: 20px;
+}
+.user{
+    width: 50%;
+    margin: auto;
+   color: black;
+    font-weight: 400;
+}

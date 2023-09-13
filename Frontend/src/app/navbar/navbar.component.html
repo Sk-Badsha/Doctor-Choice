@@ -1,0 +1,157 @@
+<nav class="menu-container">
+  <div class="menu">
+    <ul>
+      <li class="fa fa-home">
+        <a [routerLink]="'/home'" rel="noopener noreferrer">
+          Home
+        </a>
+      </li>
+      <li *ngIf="!isUserlogedin()">
+        <a [routerLink]="'/about'" rel="noopener noreferrer">
+          About
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="'/service'" rel="noopener noreferrer">
+          Service
+        </a>
+      </li>
+
+      <li *ngIf="isUserlogedin() || isAdminlogin()">
+        <a [routerLink]="'/our_doctors'" rel="noopener noreferrer">
+          Doctors
+        </a>
+      </li>
+      <!-- <li>
+        <a href="#book" rel="noopener noreferrer"  *ngIf="islogIn()">Booking</a>
+      </li> -->
+      <li>
+        <a href="#contact" rel="noopener noreferrer">
+          Contact Us
+        </a>
+      </li>
+    </ul>
+    <!-- Default Navigation panel right -->
+    <ul class="right-nav">
+      <li class="fa fa-sign-up mg-8" *ngIf="!isUserlogedin() && !isAdminlogin() && !isDoctorlogin()">
+        <a [routerLink]="'/patientReg'">
+          1. Patient Register
+        </a>
+      </li>
+      <li class="fa fa-sign-in mg-8" *ngIf="!isUserlogedin() && !isAdminlogin() && !isDoctorlogin()">
+        <a [routerLink]="'/patientlogin'">
+          2. Patient login
+        </a>
+      </li>
+
+      <li class="fa fa-sign-in" *ngIf="!isUserlogedin() && !isAdminlogin() && !isDoctorlogin()">
+        <a [routerLink]="'/doctorlogin'">
+          Doctor login
+        </a>
+      </li>
+      <li class="fa fa-sign-in" *ngIf="!isUserlogedin() && !isAdminlogin() && !isDoctorlogin()">
+        <a [routerLink]="'/Admin-Login'">
+          Admin login
+        </a>
+      </li>
+      <li class="fa fa-sign-in mg-8 " *ngIf="isUserlogedin()">
+        <a [routerLink]="''" rel="noopener noreferrer">Booking Appointment</a>
+      </li>
+      <li class="fa fa-sign-up mg-8" *ngIf="isUserlogedin()">
+        <a [routerLink]="''">
+          Update Profile
+        </a>
+      </li>
+      <li class="fa fa-sign-in df-1" *ngIf="isDoctorlogin() || isAdminlogin()">
+        <a href="">Appointment List</a>
+      </li>
+
+      <li class="fa fa-sign-in" *ngIf="isAdminlogin()"><a href="">Add Doctor</a></li>
+
+      <li class="fa fa-sign-in mg-8" *ngIf="(isUserlogedin() || isAdminlogin()) || isDoctorlogin()">
+        (click)="logout()"
+        logout
+      </li>
+    </ul>
+    <!-- User Navigation panel left -->
+
+    <!-- <ul>
+      <li class="fa fa-home">
+        <a [routerLink]="'/home'" rel="noopener noreferrer">
+          Home
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="'/our_doctors'" rel="noopener noreferrer">
+          Doctors
+        </a>
+      </li>
+      <li>
+        <a href="#contact" rel="noopener noreferrer">
+          Contact Us
+        </a>
+      </li>
+    </ul> -->
+    <!-- User Navigation panel right -->
+    <!-- <ul class="right-nav">
+      <li class="fa fa-sign-in mg-8 ">
+        <a [routerLink]="''" rel="noopener noreferrer">Booking Appointment</a>
+      </li>
+      <li class="fa fa-sign-up mg-8">
+        <a [routerLink]="''">
+          Update Profile
+        </a>
+      </li>
+      <li class="fa fa-sign-in mg-8">
+        <a [routerLink]="''">
+          logout
+        </a>
+      </li>
+    </ul> -->
+
+    <!-- Doctor Navigation panel left -->
+    <!-- <ul>
+      <li class="fa fa-home">
+        <a [routerLink]="'/home'" rel="noopener noreferrer">
+          Home
+        </a>
+      </li>
+    </ul> -->
+    <!-- Doctor Navigation panel right -->
+    <!-- <ul class="right-nav">
+      <li class="fa fa-sign-in df-1">
+        <a href="">Appointment List</a>
+      </li>
+      <li class="fa fa-sign-in df-1">
+        <a [routerLink]="''">
+          logout
+        </a>
+      </li>
+    </ul> -->
+
+
+    <!-- Admin Navigation Panel left -->
+    <!-- <ul>
+      <li class="fa fa-home">
+        <a [routerLink]="'/home'" rel="noopener noreferrer">
+          Home
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="'/our_doctors'" rel="noopener noreferrer">
+          Doctors
+        </a>
+      </li>
+    </ul> -->
+    <!-- Admin Navigation right left -->
+    <!-- <ul class="right-nav">
+      <li class="fa fa-sign-in"><a href="">Appointment List</a></li>
+      <li class="fa fa-sign-in"><a href="">Add Doctor</a></li>
+      <li class="fa fa-sign-in">
+        <a [routerLink]="''">
+          logout
+        </a>
+      </li>
+    </ul> -->
+  </div>
+</nav>

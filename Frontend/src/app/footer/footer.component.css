@@ -1,0 +1,33 @@
+.he-5 {
+
+    text-align: center !important;
+}
+
+.mb-4 {
+    margin-top: 3rem;
+}
+p{
+    font-size: 1.2rem;
+}
+h6{
+   
+    font-size: 2rem;
+}
+
+p>a {
+    font-size: 1.2em;
+    color: #ffff;
+}
+a :hover{
+    color: #222222;
+}
+.p-3{
+    font-size: 1.7rem;
+}
+
+hr{
+    border: inherit;
+    border-bottom: inherit;
+    width: inherit;
+    margin: inherit;
+  }

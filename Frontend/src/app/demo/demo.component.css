@@ -1,0 +1,9 @@
+.demo{
+    position: relative;
+}
+
+#main {
+    margin-left: 250px;
+    transition: margin-left .5s;
+    padding: 16px;
+  }

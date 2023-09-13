@@ -1,0 +1,194 @@
+<div align="center">
+  <app-navbar></app-navbar>
+  <div class="form">
+
+    <form class="p-5" name="form" #f="ngForm" [appMatchPassword]="['password', 'confirmpassword']"
+      (ngSubmit)="f.form.valid &&  submitForm(f)" novalidate>
+      <button class="btn btn-set" type="button" (click)="setDataInForm()">Set Default Data In Form</button>
+      <h1 class="text-success">Patient Registration Form</h1>
+
+      
+      <div *ngIf="showmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong class="pd-alert">Congratulations!</strong> Registration Completed successfully.
+                <button (click)="closeAlert()" type="button" class="btn-close" aria-label="Close"></button>
+      </div>
+
+      <div *ngIf="errormsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong class="pd-alert">Error:</strong> This email is already registered.
+        <button (click)="closeAlert()" type="button" class="btn-close" aria-label="Close"></button>
+      </div>
+      <div class="form-row m-8">
+        <div class="row">
+          <div class="col col-md-6">
+            <div class="mb-3">
+              <label for="inputFirstname">First Name*</label>
+              <input type="text" class="form-control" id="inputfistname4" placeholder="Enter First Name"
+                name="Firstname" [(ngModel)]="Patientobj.Firstname" required #Firstname="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && Firstname.errors }">
+              <div class="alert alert-danger" *ngIf="(f.submitted || Firstname.touched) && Firstname.errors?.required">
+                First Name is required</div>
+            </div>
+          </div>
+
+
+          <div class="col col-md-6">
+            <div class="mb-3">
+              <label for="inputlastname">Last Name*</label>
+              <input type="text" class="form-control" id="inputlastname4" placeholder="Enter Last Name" name="lastname"
+                [(ngModel)]="Patientobj.lastname" required #lastname="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && lastname.errors }">
+              <div class="alert alert-danger" *ngIf="(f.submitted || lastname.touched) && lastname.errors?.required">
+                Last Name is required</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col col-md-6">
+            <div class="mb-3">
+              <label for="inputEmail4">Email*</label>
+              <input type="email" class="form-control" id="inputEmail4" placeholder="Enter Your Email" name="email"
+                [(ngModel)]="Patientobj.email" required email #email="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && email.errors }">
+
+              <div class="alert alert-danger" *ngIf="(email.touched || f.submitted) && email.errors?.required">
+                Email is required
+              </div>
+              <div class="alert alert-danger" *ngIf="email.touched && email.errors?.email">
+                Enter a valid email address
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col col-md-6">
+            <div class="mb-3">
+              <label for="inputlastname">Mobile No*</label>
+              <input type="text" class="form-control" id="inputMobileno" placeholder="Enter Your Contact Number"
+                name="mobileno" [(ngModel)]="Patientobj.mobileno" required #mobileno="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && mobileno.errors }" pattern="^((\\+91-?)|0)?[0-9]{10}$">
+
+              <div *ngIf="(f.submitted || mobileno.touched) && (mobileno.errors?.required)" class="alert alert-danger">
+                This field is required</div>
+
+              <div *ngIf="mobileno.touched && mobileno.errors?.pattern" class="alert alert-danger">Only 10 digits are
+                Allowed</div>
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputAddress">Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="address1"
+          [(ngModel)]="Patientobj.address1" #address1="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && address1.errors }">
+        <!-- <div *ngIf="f.submitted && address1.errors " class=" alert alert-danger">
+          <div *ngIf="address1.errors['required']">Please enter Address.</div>
+        </div> -->
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputAddress2">Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor"
+          name="address2" [(ngModel)]="Patientobj.address2" #address2="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && address2.errors }">
+        <!-- <div *ngIf="f.submitted && address2.errors " class="alert alert-danger">
+          <p *ngIf="address2.errors['required']">Please enter Address2.</p>
+        </div> -->
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City*</label>
+          <input type="text" class="form-control" id="inputCity" placeholder="Enter Your City" name="city"
+            [(ngModel)]="Patientobj.city" required #city="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && city.errors }">
+          <div *ngIf="(f.submitted || city.touched) && city.errors?.required" class="alert alert-danger"> Please Enter
+            Your City
+          </div>
+        </div>
+        <div class="row">
+          <div class="col col-md-6">
+            <div class="mb-3">
+              <label for="inputState">State*</label>
+              <select class="form-select" aria-label="Default select example" name="state"
+                [(ngModel)]="Patientobj.state" required #state="ngModel"
+                [ngClass]="{ 'is-invalid': f.submitted && state.errors }">
+                <option ngValue="-1" class="dropdown-item" disabled [selected]="true">Select an Option</option>
+                <option value="West Bengal">West Bengal</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+              </select>
+              <div *ngIf="(f.submitted || state.touched) && state.errors?.required" class="alert alert-danger">
+                Please Select Your State.
+              </div>
+            </div>
+          </div>
+          <div class="col col-md-6">
+            <div class="mb-3">
+              <label for="inputZip">Zip*</label>
+              <input type="text" class="form-control" id="inputZip" name="zip" [(ngModel)]="Patientobj.zip" required
+                #zip="ngModel" [ngClass]="{ 'is-invalid': f.submitted && zip.errors }">
+              <div *ngIf="(f.submitted || zip.touched) && zip.errors?.required" class="alert alert-danger">
+                Please enter zip-code
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col col-md-6">
+          <div class="mb-3">
+            <label for="InputPassword">Password*</label>
+            <input type="password" class="form-control" id="InputPassword" name="password"
+              [(ngModel)]="Patientobj.password" required appPasswordPattern #password="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && password.errors }">
+            <div *ngIf="(f.submitted || password.touched) && password.errors?.required" class="alert alert-danger">
+              Please enter Password</div>
+            <div class="alert alert-danger" *ngIf="password.touched && password.errors?.invalidPassword">
+              Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+              letter and 1 number
+            </div>
+          </div>
+        </div>
+
+        <div class="col col-md-6">
+          <div class="mb-3">
+            <label for="inputConfirmPassword">Confirm Password*</label>
+            <input type="text" class="form-control" id="inputConfirmPassword" name="confirmpassword"
+              [(ngModel)]="Patientobj.confirmpassword" required #confirmpassword="ngModel"
+              [ngClass]="{ 'is-invalid': f.submitted && confirmpassword.errors }">
+
+            <div *ngIf="(f.submitted || confirmpassword.touched) && confirmpassword.errors?.required"
+              class="alert alert-danger">Confirm Password is required
+            </div>
+            <div class="alert alert-danger" *ngIf="confirmpassword.touched && confirmpassword.errors?.passwordMismatch">
+              Passwords doesnot match
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck" name="termsConditionsStatus">
+          <label class="form-check-label" for="gridCheck" style="color: #0b1691;">
+            Agree to Our <a href="" style="text-decoration: underline; color: #2232ddde;">Terms & Conditions</a>
+          </label>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-outline-success btn-lg btn-rounded button-1" type="submit"
+        data-mdb-ripple-color="light">Register</button>
+    </form>
+    <div class="container signin">
+      <p>Already have a Member? <a routerLink="/patientlogin">Sign in Now</a></p>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+
+<div class="wrapper">
+    <div *ngIf="showmsg" class=" alert alert-danger alert-dismissible fade show" role="alert">
+        <strong class="pd-alert">Sorry!</strong>Invalid UID or Password
+        <button (click)="closeAlert()" type="button" class="btn-close" aria-label="Close"></button>
+     </div>
+    <div class="title-text">
+        <h1 class="title login ">Patient Login</h1>
+    
+    </div>
+    <div class="form-container">
+
+        <div class="form-inner">
+            <form  name="loginform" #f="ngForm" class="login" (ngSubmit)="submitForm()" novalidate>
+
+                <div class="field">
+                    <input type="text" class="form-control"   id="InputEmail"
+                        placeholder="Email Address" name="email" [(ngModel)]="patientobj.email" required #email="ngModel"
+                        [ngClass]="{ 'is-invalid': f.submitted && email.errors }">
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Password" class="form-control"
+                        id="InputPassword" name="password" [(ngModel)]="patientobj.password" required #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors}">
+                </div>
+                <div class="pass-link">
+                    <a routerLink="/reset-password">Forgot password?</a>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Login" class="form-control" id="InputSubmit">
+                </div>
+                <div class="signup-link">
+                    Not a member? <a routerLink="/patientReg">Signup now</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
