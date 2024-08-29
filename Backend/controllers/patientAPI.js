@@ -1,8 +1,8 @@
 const sgmail = require("@sendgrid/mail");
 
-// const API_KEYS = 
+// const API_KEYS =
 // <<<<------------- SET YOUR API KEYS-------------->>>>
-
+const API_KEYS = process.env.API_KEYS;
 
 // IMPORT EXPRESS SERVER
 const express = require("express");
@@ -19,7 +19,7 @@ const { v4: uuidv4 } = require("uuid");
 const bcrypt = require("bcrypt");
 
 const jwt = require("jsonwebtoken");
-const secretKey = "Badsha";
+const secretKey = process.env.SECRET_KEY;
 //IMPORT EMPLOYEE MODEL AND BIND IT
 const PatientModel = require("../models/patient_schema");
 
@@ -273,7 +273,7 @@ router.post("/forgot-password", (req, res, next) => {
     </tr>
     </table>
     </body>
-        </html>`
+        </html>`,
       };
 
       sgmail

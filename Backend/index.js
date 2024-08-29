@@ -20,10 +20,10 @@ app.use(cors())
 
 //LINK WITH dbconnect.js :- dbconnect.js will connect with Mongodb
 // my_mongoose will capture here export from dbconnect.js - Binding
-const my_mongoose = require('./dbconnect_promise.js');
+//const my_mongoose = require('./dbconnect_promise.js');
 
 // IMPORT patientController
-const PATIENTAPI = require('./controllers/patientAPI.js');
+const PATIENTAPI =   require('./controllers/patientAPI.js');
 
 // IMPORT adminController
 const ADMINAPI = require('./controllers/adminAPI.js');
